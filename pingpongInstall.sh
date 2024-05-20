@@ -1,6 +1,5 @@
 #!/bin/bash
-sudo su
-sudo mkdir -p /myProjects/pingpong && sudo chown -R $USER:$USER /myProjects/pingpong && cd /myProjects/pingpong/
+
 wget -4 https://github.com/chenyangu/remoteGit/raw/master/PINGPONG
 yes | sudo apt-get update
 yes | sudo apt-get install ca-certificates curl
