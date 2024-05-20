@@ -1,5 +1,4 @@
 #!/bin/bash
-
 wget -4 https://github.com/chenyangu/remoteGit/raw/master/PINGPONG
 yes | sudo apt-get update
 yes | sudo apt-get install ca-certificates curl
