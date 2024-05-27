@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-# 检查是否以root用户运行脚本
+# 妫€鏌ユ槸鍚︿互root鐢ㄦ埛杩愯鑴氭湰
 if [ "$(id -u)" != "0" ]; then
     echo "please change root user to run this script"
     echo "try 'sudo su' to change to root user"
