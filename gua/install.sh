@@ -105,6 +105,9 @@ cd /root && git clone https://source.quilibrium.com/quilibrium/ceremonyclient.gi
 # Navigate to the ceremonyclient directory and update the repository
 cd /root/ceremonyclient && git fetch origin && git checkout release && git pull
 
+# 替换核数校验为1核
+sed -i 's/if parallelism < 3/if parallelism < 1/g' /root/ceremonyclient/node/consensus/master/master_clock_consensus_engine.go
+
 # Extract version from Go file
 version=$(cat /root/ceremonyclient/node/config/version.go | grep -A 1 "func GetVersion() \[\]byte {" | grep -Eo '0x[0-9a-fA-F]+' | xargs printf "%d.%d.%d")
 
@@ -126,6 +129,11 @@ case "$OSTYPE" in
         ;;
 esac
 
+cd /root/ceremonyclient/node
+go env -w GOPROXY=https://goproxy.io,direct
+go env -w GOEXPERIMENT=arenas
+go build -o ceremonyclient .
+
 echo "Create/update the systemd service file for ceremonyclient"
 cat <<EOF > /lib/systemd/system/ceremonyclient.service
 [Unit]
@@ -137,7 +145,7 @@ Restart=always
 RestartSec=5s
 WorkingDirectory=/root/ceremonyclient/node
 Environment=GOEXPERIMENT=arenas
-ExecStart=/root/ceremonyclient/node/$binary
+ExecStart=/root/ceremonyclient/node/ceremonyclient --signature-check=false
 
 [Install]
 WantedBy=multi-user.target
