@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sudo su
 if ! [ -x "$(command -v sudo)" ]; then
   echo "需要root权限执行脚本..." >&2
   exit 1
