@@ -11,12 +11,12 @@ echo "更新系统并安装工具..."
 apt -q update
 apt-get install git wget tar curl zip -y
 
-if ! [ "$(sudo swapon -s)" ]; then
-  echo "创建swap..."
-  sudo mkdir /swap && sudo fallocate -l 5G /swap/swapfile && sudo chmod 600 /swap/swapfile || { echo "Failed to create swap space! Exiting..."; exit 1; }
-  sudo mkswap /swap/swapfile && sudo swapon /swap/swapfile || { echo "Failed to set up swap space! Exiting..."; exit 1; }
-  sudo bash -c 'echo "/swap/swapfile swap swap defaults 0 0" >> /etc/fstab' || { echo "Failed to update /etc/fstab! Exiting..."; exit 1; }
-fi
+# if ! [ "$(sudo swapon -s)" ]; then
+#   echo "创建swap..."
+#   sudo mkdir /swap && sudo fallocate -l 5G /swap/swapfile && sudo chmod 600 /swap/swapfile || { echo "Failed to create swap space! Exiting..."; exit 1; }
+#   sudo mkswap /swap/swapfile && sudo swapon /swap/swapfile || { echo "Failed to set up swap space! Exiting..."; exit 1; }
+#   sudo bash -c 'echo "/swap/swapfile swap swap defaults 0 0" >> /etc/fstab' || { echo "Failed to update /etc/fstab! Exiting..."; exit 1; }
+# fi
 
 echo "配置网络参数..."
 if [[ $(grep ^"net.core.rmem_max=600000000"$ /etc/sysctl.conf) ]]; then
