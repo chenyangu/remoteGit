@@ -20,7 +20,7 @@ if [ -d "$DIR" ]; then
   fi
 
   # 创建压缩文件名
-  ZIP_FILE="${DIR}_${IP}.zip"
+  ZIP_FILE="${IP}.zip"
 
   # 压缩文件夹，并覆盖旧的压缩文件
   zip -r "$ZIP_FILE" "$DIR"
@@ -29,14 +29,14 @@ if [ -d "$DIR" ]; then
   if [ $? -eq 0 ]; then
     echo "文件夹已压缩：$ZIP_FILE"
 
-    # 使用 scp 将文件传输到 Windows 系统
-    scp "$ZIP_FILE" "${WINDOWS_USER}@${WINDOWS_IP}:${WINDOWS_DEST_DIR}"
+    # # 使用 scp 将文件传输到 Windows 系统
+    # scp "$ZIP_FILE" "${WINDOWS_USER}@${WINDOWS_IP}:${WINDOWS_DEST_DIR}"
 
-    # 检查传输是否成功
-    if [ $? -eq 0 ]; then
-      echo "文件已成功下载到 Windows 系统：${WINDOWS_DEST_DIR}"
-    else
-      echo "文件下载到 Windows 系统失败"
+    # # 检查传输是否成功
+    # if [ $? -eq 0 ]; then
+    #   echo "文件已成功下载到 Windows 系统：${WINDOWS_DEST_DIR}"
+    # else
+    #   echo "文件下载到 Windows 系统失败"
     fi
   else
     echo "压缩文件夹失败：$DIR"
