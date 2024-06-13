@@ -4,9 +4,9 @@
 DIR=".config"
 
 # 远程 Windows 系统的 SSH 配置
-WINDOWS_IP="192.168.1.100"
+WINDOWS_IP="192.168.1.3"
 WINDOWS_USER="username"
-WINDOWS_DEST_DIR="/mnt/c/Users/username/Downloads"  # WSL 中的 Windows 目录路径
+WINDOWS_DEST_DIR="/c/Users/xiguzai/Downloads"  # WSL 中的 Windows 目录路径
 
 # 检查文件夹是否存在
 if [ -d "$DIR" ]; then
