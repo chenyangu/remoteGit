@@ -8,6 +8,7 @@ WINDOWS_IP="192.168.1.3"
 WINDOWS_USER="username"
 WINDOWS_DEST_DIR="/c/Users/xiguzai/Downloads"  # WSL 中的 Windows 目录路径
 
+rm -rf /www/ceremonyclient/node/.config/config.yml.bak
 # 检查文件夹是否存在
 if [ -d "$DIR" ]; then
   # 获取外网 IP 地址
