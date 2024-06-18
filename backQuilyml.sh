@@ -12,7 +12,7 @@ if [ -z "$IP" ]; then
   exit 1
 fi
 
-cd /www/ceremonyclient/node/.config/
+cd /www/ceremonyclient/node
 # 创建压缩文件名
 ZIP_FILE="${IP}www.tar.gz"
 
@@ -28,7 +28,8 @@ else
   echo "压缩文件夹失败：$DIR"
 fi
 
-cd /root/ceremonyclient/node/.config/
+cd /root/ceremonyclient/node
+
 # 创建压缩文件名
 ZIP_FILE2="${IP}root.tar.gz"
 
