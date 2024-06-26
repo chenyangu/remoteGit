@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 关键字
-keyword="node-1.4.19"
+keyword="node"
 
 # CPU 使用限制百分比
 cpu_limit=80
