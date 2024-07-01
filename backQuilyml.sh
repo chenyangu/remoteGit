@@ -19,7 +19,7 @@ if [ -d "$DIR" ]; then
   ZIP_FILE="${IP}www.tar.gz"
   
   # 压缩文件夹，并覆盖旧的压缩文件
-  tar -czf "$ZIP_FILE" "$DIR"
+  tar -czf "$ZIP_FILE" "$DIR"/*
   
   # 检查压缩是否成功
   if [ $? -eq 0 ]; then
@@ -41,7 +41,7 @@ if [ -d "$DIR2" ]; then
   ZIP_FILE2="${IP}root.tar.gz"
   
   # 压缩文件夹，并覆盖旧的压缩文件
-  tar -czf "$ZIP_FILE2" "$DIR2"
+  tar -czf "$ZIP_FILE2" "$DIR2"/*
   
   # 检查压缩是否成功
   if [ $? -eq 0 ]; then
