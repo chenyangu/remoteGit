@@ -21,7 +21,7 @@ fi
 
 cd $DIR
 
-LOCAL_FILE = $DIR/aleo-pool-prover
+LOCAL_FILE = "aleo-pool-prover"
 # 检查本地文件是否存在
 if [ -f "$LOCAL_FILE" ]; then
     echo "本地文件 $LOCAL_FILE 已存在。"
