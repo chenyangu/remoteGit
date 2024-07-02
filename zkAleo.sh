@@ -32,7 +32,7 @@ Description=Aleo F2Pool Prover Service
 After=network.target
 
 [Service]
-ExecStart=/home/lighthouse/aleo-pool-prover --pool wss://aleo.zkrush.com:3333 --account $ACCOUNTNAME --worker-name $WORKERNAME
+ExecStart=$DIR/aleo-pool-prover --pool wss://aleo.zkrush.com:3333 --account $ACCOUNTNAME --worker-name $WORKERNAME
 WorkingDirectory=$DIR
 StandardOutput=append:$DIR/prover.log
 StandardError=append:$DIR/prover.log
