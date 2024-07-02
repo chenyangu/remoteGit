@@ -23,7 +23,8 @@ cd $DIR
 
 echo "开始下载zk aleo文件"
 wget -c https://github.com/zkrush/aleo-pool-client/releases/download/v1.5-testnet-beta/aleo-pool-prover
-
+echo "下载完成"
+chmod +x aleo-pool-prover
 cat <<EOF > /etc/systemd/system/aleo-pool-prover.service
 
 [Unit]
