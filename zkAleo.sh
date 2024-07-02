@@ -19,6 +19,8 @@ else
     fi
 fi
 
+cd $DIR
+
 echo "开始下载zk aleo文件"
 wget -c https://github.com/zkrush/aleo-pool-client/releases/download/v1.5-testnet-beta/aleo-pool-prover
 
