@@ -145,7 +145,6 @@ cat <<EOF > /lib/systemd/system/ceremonyclient.service
 Description=Ceremony Client Go App Service
 
 [Service]
-CPUQuota=${CPU_QUOTA}%
 Type=simple
 Restart=always
 RestartSec=5s
