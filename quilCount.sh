@@ -7,11 +7,20 @@ trap 'echo "Error occurred at line $LINENO"' ERR
 # 文件路径，用于存储余额记录
 LOG_FILE="balance_log.txt"
 SUMMARY_FILE="balance_summary.txt"
+ARCH=$(uname -m)
 
 # 获取当前的 Unclaimed balance (只提取数字部分)
 get_balance() {
 #    echo "Running get_balance at line $LINENO"
     ./node-1.4.21.1-darwin-arm64 --node-info | grep "Unclaimed balance" | awk '{print $3}'
+    if [[ "$ARCH" == "x86_64" ]]; then
+      ./node-1.4.21-linux-amd64 --node-info | grep "Unclaimed balance" | awk '{print $3}'
+    elif [[ "$ARCH" == "aarch64" ]]; then
+      ./node-1.4.21.1-darwin-arm64 --node-info | grep "Unclaimed balance" | awk '{print $3}'
+    else
+      echo "不支持的架构: $ARCH"
+      exit 1
+    fi
 }
 
 # 记录当前时间和余额，同时输出到命令行
