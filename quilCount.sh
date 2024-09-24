@@ -2,6 +2,7 @@
 
 sudo apt update
 sudo apt install bc
+
 # 启用错误输出和调试信息
 set -e
 trap 'echo "Error occurred at line $LINENO"' ERR
