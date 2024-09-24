@@ -12,7 +12,6 @@ ARCH=$(uname -m)
 # 获取当前的 Unclaimed balance (只提取数字部分)
 get_balance() {
 #    echo "Running get_balance at line $LINENO"
-    ./node-1.4.21.1-darwin-arm64 --node-info | grep "Unclaimed balance" | awk '{print $3}'
     if [[ "$ARCH" == "x86_64" ]]; then
       ./node-1.4.21-linux-amd64 --node-info | grep "Unclaimed balance" | awk '{print $3}'
     elif [[ "$ARCH" == "aarch64" ]]; then
