@@ -1,5 +1,17 @@
 #!/bin/bash
 
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    release_os="linux"
+    if [[ $(uname -m) == "aarch64"* ]]; then
+        release_arch="arm64"
+    else
+        release_arch="amd64"
+    fi
+else
+    release_os="darwin"
+    release_arch="arm64"
+fi
+
 binary="node-2.0.1-$release_os-$release_arch"
 # 循环执行，直到手动停止
 while true; do
