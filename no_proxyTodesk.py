@@ -71,7 +71,7 @@ async def connect_to_wss(user_id):
             logger.error(e)
 
 
-async def main(user_id):
+async def main(_user_id):
     # TODO 修改user_id
     # _user_id = '2oAHtpD4ypqV6NVXCZTmc21hCPM'
     await connect_to_wss(_user_id)
