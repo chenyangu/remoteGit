@@ -9,6 +9,7 @@ import ssl
 import json
 import time
 import uuid
+import sys
 
 import websockets
 from loguru import logger
